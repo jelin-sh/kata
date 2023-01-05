@@ -1,5 +1,5 @@
 /**
- * KATA: https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1
+ * KATA: https://www.codewars.com/kata/5552101f47fc5178b1000050
  */
 #include <iostream>
 #include <cmath>
