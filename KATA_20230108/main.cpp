@@ -8,17 +8,16 @@
 std::vector<std::string> towerBuilder(unsigned nFloors) {
     const unsigned width = 2 * nFloors - 1;
     const unsigned center = width / 2;
-    std::vector<std::string> tower{};
+    std::vector<std::string> tower(width);
     std::string buf = std::string(width,' ');
-    unsigned i = 0;
-    for (unsigned j = 0; j < nFloors; ++j) {
+    for (unsigned i = 0; i < nFloors; ++i) {
         buf[center - i] = '*';
         buf[center + i] = '*';
-        tower.push_back(buf);
-        ++i;
+        tower[i] = buf;
     }
     return tower;
 }
+
 int main() {
     //---
     std::cout << towerBuilder(1)[0] << std::endl;
