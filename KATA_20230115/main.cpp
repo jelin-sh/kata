@@ -61,8 +61,42 @@ int maxSequence(const std::vector<int>& arr){
     return max_sum;
 }
 
+
+#include <string>
+#include <vector>
+
+void foo(std::vector<std::string>& res, const std::string& s, std::string prefix){
+    if(s.empty()){
+        for (const auto& item:res) {
+            if(item == prefix){
+                return ;
+            }
+        }
+        res.push_back(prefix);
+    } else {
+        for (size_t i = 0; i < s.size(); ++i) {
+            foo(res, s.substr(0, i) + s.substr(i+1), prefix + s[i]);
+        }
+    }
+}
+
+std::vector<std::string> permutations(std::string s) {
+    if(s.empty()){
+        return {""};
+    }
+    std::vector<std::string> res;
+    std::cout << "input: " << s << std::endl;
+    for(int i = 0;i<s.size();i++){
+        foo(res,s.substr(0,i) + s.substr(i+1), s.substr(i,1));
+    }
+    return res;
+}
+
+
 int main() {
-    //std::cout << zeros(827) << std::endl;
-    std::cout << sum_strings("99","2") << std::endl;
+    auto res = permutations("");
+    for (const auto& item:res) {
+        std::cout << item << std::endl;
+    }
     return 0;
 }
