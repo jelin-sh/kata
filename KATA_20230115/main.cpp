@@ -44,6 +44,23 @@ std::string sum_strings(const std::string& a, const std::string& b) {
     return result;
 }
 
+
+#include <vector>
+int maxSequence(const std::vector<int>& arr){
+    int max_sum = 0;
+    int sum = 0;
+    for (int i : arr) {
+        sum += i;
+        if(sum < 0) {
+            sum = 0;
+        }
+        if(sum > max_sum) {
+            max_sum = sum;
+        }
+    }
+    return max_sum;
+}
+
 int main() {
     //std::cout << zeros(827) << std::endl;
     std::cout << sum_strings("99","2") << std::endl;
